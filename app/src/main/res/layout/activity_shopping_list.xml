@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ShoppingListActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/shoppingActivityToolbar"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="?attr/actionBarSize"
+        >
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/shoppingActivitySearchView"
+            android:layout_width="180dp"
+            android:hint="Search shopping list by name"
+            android:layout_height="match_parent"
+            android:inputType="text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:text="Search"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/getAllButton"
+            android:layout_marginStart="18dp"
+            android:layout_width="wrap_content"
+            android:text="Get all"
+            android:layout_height="wrap_content" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/addShoppingListLl"
+        android:orientation="horizontal"
+        android:layout_margin="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shoppingActivityToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/shoppingListNameEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:hint="Enter shopping list name"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addShoppingListBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Add a shopping list"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/shoppingListsRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addShoppingListLl"
+        android:layout_below="@id/shoppingActivityToolbar"
+        android:layout_margin="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

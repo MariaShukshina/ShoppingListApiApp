@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/shoppingListNameLl"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/listNameTv"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="List name"/>
+
+        <ImageView
+            android:id="@+id/deleteIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/baseline_delete_24"/>
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/shoppingItemsRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        tools:itemCount="5"
+        tools:listitem="@layout/shopping_list_item_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shoppingListNameLl"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shoppingItemsRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/shoppingListNameEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:textSize="14sp"
+            android:hint="Enter item name"
+            />
+
+        <EditText
+            android:id="@+id/shoppingListQuantityEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:textSize="14sp"
+            android:hint="Enter quantity"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addShoppingListBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Add item"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

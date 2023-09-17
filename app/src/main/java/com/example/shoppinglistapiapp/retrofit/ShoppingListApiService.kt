@@ -1,9 +1,6 @@
 package com.example.shoppinglistapiapp.retrofit
 
-import com.example.shoppinglistapiapp.models.ItemToAdd
-import com.example.shoppinglistapiapp.models.ShoppingList
 import retrofit2.Call
-import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -18,9 +15,12 @@ interface ShoppingListApiService {
     fun authenticate(@Query("key") key: String): Call<Authentication>
 
     @POST("CreateShoppingList")
-    fun createShoppingList(@Body shoppingList: ShoppingList): Call<ShoppingListCreated>
+    fun createShoppingList(
+        @Query("key") key: String,
+        @Query("name") name: String
+    ): Call<ShoppingListCreated>
 
-    @DELETE("RemoveShoppingList")
+    @POST("RemoveShoppingList")
     fun removeShoppingList(@Query("list_id") listId: Int): Call<ShoppingListRemoved>
 
     @GET("GetAllMyShopLists")
@@ -30,7 +30,8 @@ interface ShoppingListApiService {
     fun getShoppingListById(@Query("list_id") listId: Int): Call<ShoppingListById>
 
     @POST("AddToShoppingList")
-    fun addToShoppingList(@Body itemToAdd: ItemToAdd): Call<ItemAdded>
+    fun addToShoppingList(@Query("id") id: Int, @Query("value") name: String, @Query("n") n: Int)
+            : Call<ItemAdded>
 
     @DELETE("CrossItOff")
     fun crossOffItem(@Query("id") id: Int, @Query("value") value: String)

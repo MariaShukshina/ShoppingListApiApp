@@ -15,6 +15,8 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var key: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -24,13 +26,14 @@ class MainActivity : AppCompatActivity() {
             Retrofit.retrofitService.getTestKey().enqueue(object : Callback<String> {
                 override fun onResponse(call: Call<String>, response: Response<String>) {
                     if (response.isSuccessful) {
-                        binding.keyTextView.text = response.body()
+                        key = response.body() ?: ""
+                        binding.keyTextView.text = key
                         binding.keyTextView.visibility = View.VISIBLE
                         binding.textView.visibility = View.INVISIBLE
                     }
                 }
                 override fun onFailure(call: Call<String>, t: Throwable) {
-                    binding.keyTextView.text = t.message
+                    binding.keyTextView.text = "Key is not generated"
                     binding.keyTextView.visibility = View.VISIBLE
                     binding.textView.visibility = View.INVISIBLE
                 }
@@ -42,6 +45,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter a key", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            key = binding.keyEditText.text.toString()
+
             Retrofit.retrofitService.authenticate(binding.keyEditText.text.toString()).enqueue(object : Callback<Authentication> {
                 var authenticationResult: Boolean = false
 
@@ -49,8 +54,10 @@ class MainActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         authenticationResult = response.body()?.success ?: false
                         if(authenticationResult) {
-                            startActivity(Intent(this@MainActivity,
-                                ShoppingListActivity::class.java))
+                            val intent = Intent(this@MainActivity,
+                                ShoppingListActivity::class.java)
+                            intent.putExtra("key", key)
+                            startActivity(intent)
                         }
                     } else {
                         binding.textView.text = response.message()
