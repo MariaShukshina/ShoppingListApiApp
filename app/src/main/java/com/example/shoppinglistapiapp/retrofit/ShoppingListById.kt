@@ -1,6 +1,6 @@
 package com.example.shoppinglistapiapp.retrofit
 
 data class ShoppingListById(
-    val item_list: List<Item>,
+    val item_list: ArrayList<Item>,
     val success: Boolean
 )

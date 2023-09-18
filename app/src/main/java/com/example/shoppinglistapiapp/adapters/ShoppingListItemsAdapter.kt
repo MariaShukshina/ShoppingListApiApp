@@ -3,27 +3,28 @@ package com.example.shoppinglistapiapp.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shoppinglistapiapp.databinding.ShoppingListLayoutBinding
-import com.example.shoppinglistapiapp.retrofit.Shop
+import com.example.shoppinglistapiapp.databinding.ShoppingListItemLayoutBinding
+import com.example.shoppinglistapiapp.retrofit.Item
+
 
 class ShoppingListItemsAdapter: RecyclerView.Adapter<ShoppingListItemsAdapter
-    .ShoppingListItemsViewHolder>() {
+.ShoppingListItemsViewHolder>() {
 
-    private var shoppingListList = arrayListOf<Shop>()
-    var onDeleteItemClicked: (id: Int) -> Unit = {}
+    private var shoppingItems = arrayListOf<Item>()
 
-    fun setList(list: List<Shop>){
-        shoppingListList = list.toCollection(arrayListOf())
+
+    fun setList(list: ArrayList<Item>){
+        shoppingItems = list
         notifyDataSetChanged()
     }
 
-    fun addShoppingList(shoppingList: Shop){
-        shoppingListList.add(shoppingList)
-        notifyItemInserted(shoppingListList.size - 1)
+    fun addItem(item: Item){
+        shoppingItems.add(item)
+        notifyItemInserted(shoppingItems.size - 1)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingListItemsViewHolder {
-        val binding = ShoppingListLayoutBinding.inflate(
+        val binding = ShoppingListItemLayoutBinding.inflate(
             LayoutInflater.from(parent.context),
             parent, false
         )
@@ -31,24 +32,16 @@ class ShoppingListItemsAdapter: RecyclerView.Adapter<ShoppingListItemsAdapter
     }
 
     override fun onBindViewHolder(holder: ShoppingListItemsViewHolder, position: Int) {
-        val list = shoppingListList[position]
-        holder.listNameTv.text = list.name
-
-        holder.deleteIcon.setOnClickListener {
-            onDeleteItemClicked(list.id)
-            shoppingListList.removeAt(position)
-            notifyItemRemoved(position)
-        }
-
+        val list = shoppingItems[position]
+        holder.itemNameTv.text = list.name
     }
 
     override fun getItemCount(): Int {
-        return shoppingListList.size
+        return shoppingItems.size
     }
 
-    class ShoppingListItemsViewHolder(binding: ShoppingListLayoutBinding):
+    class ShoppingListItemsViewHolder(binding: ShoppingListItemLayoutBinding):
         RecyclerView.ViewHolder(binding.root) {
-        val listNameTv = binding.listNameTv
-        val deleteIcon = binding.deleteIcon
+            val itemNameTv = binding.tvToDoTitle
     }
 }
