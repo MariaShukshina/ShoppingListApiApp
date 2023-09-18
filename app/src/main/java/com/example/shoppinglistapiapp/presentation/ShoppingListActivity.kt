@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp
+package com.example.shoppinglistapiapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,9 +6,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.shoppinglistapiapp.adapters.ShoppingListAdapter
-import com.example.shoppinglistapiapp.adapters.ShoppingListItemsAdapter
-import com.example.shoppinglistapiapp.adapters.SingleShoppingListItemsAdapter
+import com.example.shoppinglistapiapp.presentation.adapters.ShoppingListAdapter
+import com.example.shoppinglistapiapp.presentation.adapters.SingleShoppingListItemsAdapter
 import com.example.shoppinglistapiapp.databinding.ActivityShoppingListBinding
 import com.example.shoppinglistapiapp.retrofit.ItemAdded
 import com.example.shoppinglistapiapp.retrofit.ItemCrossedOff

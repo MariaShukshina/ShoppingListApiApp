@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp
+package com.example.shoppinglistapiapp.presentation
 
 import com.example.shoppinglistapiapp.retrofit.Authentication
 import android.content.Intent

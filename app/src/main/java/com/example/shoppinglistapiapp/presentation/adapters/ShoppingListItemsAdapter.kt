@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp.adapters
+package com.example.shoppinglistapiapp.presentation.adapters
 
 import android.graphics.Paint
 import android.view.LayoutInflater
@@ -9,8 +9,7 @@ import com.example.shoppinglistapiapp.databinding.ShoppingListItemLayoutBinding
 import com.example.shoppinglistapiapp.retrofit.Item
 
 
-class ShoppingListItemsAdapter: RecyclerView.Adapter<ShoppingListItemsAdapter
-.ShoppingListItemsViewHolder>() {
+class ShoppingListItemsAdapter: RecyclerView.Adapter<ShoppingListItemsAdapter.ShoppingListItemsViewHolder>() {
 
     private var shoppingItems = arrayListOf<Item>()
 

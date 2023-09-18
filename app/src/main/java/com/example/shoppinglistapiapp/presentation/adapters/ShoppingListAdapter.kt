@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp.adapters
+package com.example.shoppinglistapiapp.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,8 +9,7 @@ import com.example.shoppinglistapiapp.models.ItemModel
 import com.example.shoppinglistapiapp.retrofit.Item
 import com.example.shoppinglistapiapp.retrofit.Shop
 
-class ShoppingListAdapter: RecyclerView.Adapter<ShoppingListAdapter
-    .ShoppingListViewHolder>() {
+class ShoppingListAdapter: RecyclerView.Adapter<ShoppingListAdapter.ShoppingListViewHolder>() {
 
     private var shoppingListList = arrayListOf<Shop>()
 

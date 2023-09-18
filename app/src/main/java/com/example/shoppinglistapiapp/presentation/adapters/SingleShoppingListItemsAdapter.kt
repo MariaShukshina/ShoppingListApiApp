@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp.adapters
+package com.example.shoppinglistapiapp.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglistapiapp.databinding.SingleShoppingListItemBinding
 import com.example.shoppinglistapiapp.retrofit.Item
 
-class SingleShoppingListItemsAdapter : RecyclerView.Adapter<SingleShoppingListItemsAdapter
-.SingleShoppingListItemsViewHolder>() {
+class SingleShoppingListItemsAdapter : RecyclerView.Adapter<SingleShoppingListItemsAdapter.SingleShoppingListItemsViewHolder>() {
 
     private var itemsList = ArrayList<Item>()
     fun setList(list: ArrayList<Item>) {
