@@ -46,7 +46,7 @@ class ShoppingListItemsAdapter: RecyclerView.Adapter<ShoppingListItemsAdapter.Sh
         }
     }
 
-    private fun toggleStrikeThru(tvToDoTitle: TextView, isChecked: Boolean){ // зачеркнутый текст
+    private fun toggleStrikeThru(tvToDoTitle: TextView, isChecked: Boolean){
         if(isChecked){
             tvToDoTitle.paintFlags = tvToDoTitle.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         }else{

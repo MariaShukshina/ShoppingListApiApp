@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ShoppingListApiApp</string>
+    <string name="key_not_generated">Key is not generated</string>
 </resources>

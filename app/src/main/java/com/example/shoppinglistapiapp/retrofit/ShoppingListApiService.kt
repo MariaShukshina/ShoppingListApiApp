@@ -14,10 +14,8 @@ interface ShoppingListApiService {
     fun authenticate(@Query("key") key: String): Call<Authentication>
 
     @POST("CreateShoppingList")
-    fun createShoppingList(
-        @Query("key") key: String,
-        @Query("name") name: String
-    ): Call<ShoppingListCreated>
+    fun createShoppingList(@Query("key") key: String, @Query("name") name: String):
+            Call<ShoppingListCreated>
 
     @POST("RemoveShoppingList")
     fun removeShoppingList(@Query("list_id") listId: Int): Call<ShoppingListRemoved>

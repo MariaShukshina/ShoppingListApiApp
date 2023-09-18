@@ -13,8 +13,6 @@ class ShoppingListAdapter: RecyclerView.Adapter<ShoppingListAdapter.ShoppingList
 
     private var shoppingListList = arrayListOf<Shop>()
 
-    //private var itemsMap: HashMap<Int, ArrayList<Item>> = hashMapOf()
-
     var loadItems: (id: Int, callback: (ArrayList<Item>?) -> Unit) -> Unit = { _, _ -> }
 
     var addItemHandler : (item: ItemModel) -> Unit = {}
@@ -28,17 +26,6 @@ class ShoppingListAdapter: RecyclerView.Adapter<ShoppingListAdapter.ShoppingList
         shoppingListList = list.toCollection(arrayListOf())
         notifyDataSetChanged()
     }
-
-   /* fun setItemsList(list: ArrayList<Item>, id: Int) {
-        itemsMap.clear()
-        for (item in list) {
-            if (!itemsMap.containsKey(id)) {
-                itemsMap[id] = arrayListOf()
-            }
-            itemsMap[id]?.add(item)
-        }
-        notifyDataSetChanged()
-    }*/
 
     fun addShoppingList(shoppingList: Shop){
         shoppingListList.add(shoppingList)
@@ -59,7 +46,6 @@ class ShoppingListAdapter: RecyclerView.Adapter<ShoppingListAdapter.ShoppingList
         val shoppingListItemsAdapter = ShoppingListItemsAdapter()
 
         loadItems(list.id) { items ->
-            // Update the inner adapter with the loaded items
             shoppingListItemsAdapter.setList(items ?: arrayListOf())
         }
 
