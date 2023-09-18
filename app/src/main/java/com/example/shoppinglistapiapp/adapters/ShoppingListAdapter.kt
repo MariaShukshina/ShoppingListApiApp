@@ -22,6 +22,8 @@ class ShoppingListAdapter: RecyclerView.Adapter<ShoppingListAdapter
 
     var onDeleteItemClicked: (id: Int) -> Unit = {}
 
+    var crossOutItemHandler: (shopId: Int) -> Unit = {}
+
 
     fun setList(list: List<Shop>) {
         shoppingListList = list.toCollection(arrayListOf())
@@ -66,6 +68,10 @@ class ShoppingListAdapter: RecyclerView.Adapter<ShoppingListAdapter
             onDeleteItemClicked(list.id)
             shoppingListList.removeAt(position)
             notifyItemRemoved(position)
+        }
+
+        shoppingListItemsAdapter.crossOutItemHandler = {
+            crossOutItemHandler(it)
         }
 
 

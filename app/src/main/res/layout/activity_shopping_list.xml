@@ -16,7 +16,7 @@
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/shoppingActivitySearchView"
-            android:layout_width="150dp"
+            android:layout_width="140dp"
             android:hint="Search shopping list by name"
             android:layout_height="match_parent"
             android:inputType="text" />

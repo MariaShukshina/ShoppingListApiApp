@@ -11,6 +11,7 @@ import com.example.shoppinglistapiapp.adapters.ShoppingListItemsAdapter
 import com.example.shoppinglistapiapp.adapters.SingleShoppingListItemsAdapter
 import com.example.shoppinglistapiapp.databinding.ActivityShoppingListBinding
 import com.example.shoppinglistapiapp.retrofit.ItemAdded
+import com.example.shoppinglistapiapp.retrofit.ItemCrossedOff
 import com.example.shoppinglistapiapp.retrofit.Retrofit
 import com.example.shoppinglistapiapp.retrofit.Shop
 import com.example.shoppinglistapiapp.retrofit.ShoppingListById
@@ -179,11 +180,27 @@ class ShoppingListActivity : AppCompatActivity() {
                     call: Call<ItemAdded>,
                     response: Response<ItemAdded>
                 ) {
+                    Log.i("ShoppingListActivity", "${response.body()?.item_id}")
                 }
 
                 override fun onFailure(call: Call<ItemAdded>, t: Throwable) {
                     Toast.makeText(this@ShoppingListActivity,
                         "Failed to add item", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+        adapter.crossOutItemHandler = {
+            Retrofit.retrofitService.crossOffItem(it).enqueue(object : Callback<ItemCrossedOff> {
+                override fun onResponse(
+                    call: Call<ItemCrossedOff>,
+                    response: Response<ItemCrossedOff>
+                ) {
+                    Log.i("ShoppingListActivity", "${response.body()?.success}")
+                }
+
+                override fun onFailure(call: Call<ItemCrossedOff>, t: Throwable) {
+                    Toast.makeText(this@ShoppingListActivity,
+                        "Failed to cross out item", Toast.LENGTH_SHORT).show()
                 }
             })
         }
