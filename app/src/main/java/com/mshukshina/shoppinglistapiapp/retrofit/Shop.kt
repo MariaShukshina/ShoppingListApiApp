@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp.retrofit
+package com.mshukshina.shoppinglistapiapp.retrofit
 
 data class Shop(
     val created: String,

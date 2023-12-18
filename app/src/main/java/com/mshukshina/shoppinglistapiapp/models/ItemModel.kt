@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp.models
+package com.mshukshina.shoppinglistapiapp.models
 
 data class ItemModel(
     val id: Int,

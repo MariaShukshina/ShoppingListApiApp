@@ -1,13 +1,13 @@
-package com.example.shoppinglistapiapp.presentation.adapters
+package com.mshukshina.shoppinglistapiapp.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shoppinglistapiapp.databinding.ShoppingListLayoutBinding
-import com.example.shoppinglistapiapp.models.ItemModel
-import com.example.shoppinglistapiapp.retrofit.Item
-import com.example.shoppinglistapiapp.retrofit.Shop
+import com.mshukshina.shoppinglistapiapp.databinding.ShoppingListLayoutBinding
+import com.mshukshina.shoppinglistapiapp.models.ItemModel
+import com.mshukshina.shoppinglistapiapp.retrofit.Item
+import com.mshukshina.shoppinglistapiapp.retrofit.Shop
 
 class ShoppingListAdapter: RecyclerView.Adapter<ShoppingListAdapter.ShoppingListViewHolder>() {
 
@@ -72,8 +72,10 @@ class ShoppingListAdapter: RecyclerView.Adapter<ShoppingListAdapter.ShoppingList
                             + holder.shoppingListQuantityEt.text.toString())
                 shoppingListItemsAdapter.addItem(item)
 
-                addItemHandler(ItemModel(list.id, holder.shoppingListNameEt.text.toString(),
-                    holder.shoppingListQuantityEt.text.toString().toInt()))
+                addItemHandler(
+                    ItemModel(list.id, holder.shoppingListNameEt.text.toString(),
+                    holder.shoppingListQuantityEt.text.toString().toInt())
+                )
 
                 holder.shoppingListNameEt.text.clear()
                 holder.shoppingListQuantityEt.text.clear()

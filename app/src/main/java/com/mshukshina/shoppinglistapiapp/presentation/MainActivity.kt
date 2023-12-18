@@ -1,14 +1,14 @@
-package com.example.shoppinglistapiapp.presentation
+package com.mshukshina.shoppinglistapiapp.presentation
 
-import com.example.shoppinglistapiapp.retrofit.Authentication
+import com.mshukshina.shoppinglistapiapp.retrofit.Authentication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.shoppinglistapiapp.R
-import com.example.shoppinglistapiapp.databinding.ActivityMainBinding
-import com.example.shoppinglistapiapp.retrofit.Retrofit
+import com.mshukshina.shoppinglistapiapp.R
+import com.mshukshina.shoppinglistapiapp.databinding.ActivityMainBinding
+import com.mshukshina.shoppinglistapiapp.retrofit.Retrofit
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

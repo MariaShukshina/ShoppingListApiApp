@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp
+package com.mshukshina.shoppinglistapiapp
 
 import org.junit.Test
 

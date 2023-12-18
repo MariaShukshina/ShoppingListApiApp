@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp.retrofit
+package com.mshukshina.shoppinglistapiapp.retrofit
 
 import retrofit2.Call
 import retrofit2.http.GET

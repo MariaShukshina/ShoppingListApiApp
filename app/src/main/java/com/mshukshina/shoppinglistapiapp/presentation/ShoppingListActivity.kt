@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp.presentation
+package com.mshukshina.shoppinglistapiapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,17 +6,17 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.shoppinglistapiapp.presentation.adapters.ShoppingListAdapter
-import com.example.shoppinglistapiapp.presentation.adapters.SingleShoppingListItemsAdapter
-import com.example.shoppinglistapiapp.databinding.ActivityShoppingListBinding
-import com.example.shoppinglistapiapp.retrofit.ItemAdded
-import com.example.shoppinglistapiapp.retrofit.ItemCrossedOff
-import com.example.shoppinglistapiapp.retrofit.Retrofit
-import com.example.shoppinglistapiapp.retrofit.Shop
-import com.example.shoppinglistapiapp.retrofit.ShoppingListById
-import com.example.shoppinglistapiapp.retrofit.ShoppingListCreated
-import com.example.shoppinglistapiapp.retrofit.ShoppingListRemoved
-import com.example.shoppinglistapiapp.retrofit.ShoppingListsList
+import com.mshukshina.shoppinglistapiapp.presentation.adapters.ShoppingListAdapter
+import com.mshukshina.shoppinglistapiapp.presentation.adapters.SingleShoppingListItemsAdapter
+import com.mshukshina.shoppinglistapiapp.databinding.ActivityShoppingListBinding
+import com.mshukshina.shoppinglistapiapp.retrofit.ItemAdded
+import com.mshukshina.shoppinglistapiapp.retrofit.ItemCrossedOff
+import com.mshukshina.shoppinglistapiapp.retrofit.Retrofit
+import com.mshukshina.shoppinglistapiapp.retrofit.Shop
+import com.mshukshina.shoppinglistapiapp.retrofit.ShoppingListById
+import com.mshukshina.shoppinglistapiapp.retrofit.ShoppingListCreated
+import com.mshukshina.shoppinglistapiapp.retrofit.ShoppingListRemoved
+import com.mshukshina.shoppinglistapiapp.retrofit.ShoppingListsList
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,7 +66,7 @@ class ShoppingListActivity : AppCompatActivity() {
                 Retrofit.retrofitService.getShoppingListById(binding.shoppingActivitySearchView.query
                     .toString().toInt()).enqueue(object: Callback<ShoppingListById> {
                     override fun onResponse(call: Call<ShoppingListById>,
-                        response: Response<ShoppingListById>) {
+                                            response: Response<ShoppingListById>) {
                         if(response.isSuccessful) {
                             val shoppingList = response.body()
                             if(shoppingList != null) {
@@ -108,8 +108,10 @@ class ShoppingListActivity : AppCompatActivity() {
                             if(listId != null) {
                                 Toast.makeText(this@ShoppingListActivity,
                                     "List created", Toast.LENGTH_SHORT).show()
-                                adapter.addShoppingList(Shop("", listId!!,
-                                    binding.shoppingListNameEt.text.toString()))
+                                adapter.addShoppingList(
+                                    Shop("", listId!!,
+                                    binding.shoppingListNameEt.text.toString())
+                                )
                                 binding.shoppingListNameEt.text.clear()
                             }
                         }

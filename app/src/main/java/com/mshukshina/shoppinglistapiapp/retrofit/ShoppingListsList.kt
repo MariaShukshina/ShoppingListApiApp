@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp.retrofit
+package com.mshukshina.shoppinglistapiapp.retrofit
 
 data class ShoppingListsList(
     val shop_list: List<Shop>,

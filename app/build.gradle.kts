@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.shoppinglistapiapp"
+    namespace = "com.mshukshina.shoppinglistapiapp"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.shoppinglistapiapp"
+        applicationId = "com.mshukshina.shoppinglistapiapp"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

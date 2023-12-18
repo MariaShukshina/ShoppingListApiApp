@@ -1,4 +1,4 @@
-package com.example.shoppinglistapiapp.retrofit
+package com.mshukshina.shoppinglistapiapp.retrofit
 
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit

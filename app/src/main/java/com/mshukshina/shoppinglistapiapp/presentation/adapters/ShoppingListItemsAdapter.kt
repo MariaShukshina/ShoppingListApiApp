@@ -1,12 +1,12 @@
-package com.example.shoppinglistapiapp.presentation.adapters
+package com.mshukshina.shoppinglistapiapp.presentation.adapters
 
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shoppinglistapiapp.databinding.ShoppingListItemLayoutBinding
-import com.example.shoppinglistapiapp.retrofit.Item
+import com.mshukshina.shoppinglistapiapp.databinding.ShoppingListItemLayoutBinding
+import com.mshukshina.shoppinglistapiapp.retrofit.Item
 
 
 class ShoppingListItemsAdapter: RecyclerView.Adapter<ShoppingListItemsAdapter.ShoppingListItemsViewHolder>() {
